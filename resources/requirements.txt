@@ -1,0 +1,12 @@
+pip>=24.0
+streamlit
+pandas
+matplotlib
+plotly
+requests
+llama-cpp-python
+openpyxl
+tabulate
+seaborn
+numpy
+ollama

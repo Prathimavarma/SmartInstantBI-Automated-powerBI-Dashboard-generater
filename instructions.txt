@@ -1,0 +1,142 @@
+🧠 Data Bot — Setup & Usage Guide
+
+Welcome to Data Bot — a local AI-powered data dashboard built using Python, Streamlit, and Ollama.
+This guide will help you set up everything step-by-step, even if you’ve never used Python before.
+
+🚀 1. Getting Started (First-Time Setup)
+
+Follow these steps the first time you run this project:
+
+Download and Extract the entire project folder data-bot anywhere on your computer (e.g. D:\Projects\data-bot or X:\data-bot).
+
+Open the folder and locate:
+
+first_time_run.bat
+
+run.bat
+
+The resources folder (contains requirements.txt)
+
+Double-click first_time_run.bat.
+
+This script will automatically:
+
+Create a virtual environment (venv) for isolated dependencies.
+
+Install Python libraries (Streamlit, Pandas, Seaborn, etc.).
+
+Install Ollama (the local AI backend).
+
+Download the Gemma3:1b AI model for offline processing.
+
+Once the setup is complete, you’ll see:
+
+[✅] Setup completed successfully!
+You can now run the app using run.bat
+
+▶️ 2. Running the Dashboard
+
+After the first setup:
+
+Simply double-click run.bat.
+
+The script will:
+
+Activate the virtual environment.
+
+Start the Ollama background service.
+
+Launch Streamlit automatically.
+
+Wait a few seconds — your default browser will open at:
+
+http://localhost:8501
+
+
+Enjoy your interactive data dashboard!
+
+🔁 3. Folder Structure Explained
+data-bot/
+│
+├── app.py                  ← Main Streamlit app file (dashboard logic)
+├── chat_ui.py              ← Chat interface or AI assistant logic
+├── run.bat                 ← Launch script (for daily use)
+├── first_time_run.bat      ← Initial setup script (run only once)
+│
+├── venv/                   ← Python virtual environment (auto-created)
+│   ├── Scripts/
+│   ├── Lib/
+│   └── ...
+│
+├── resources/
+│   ├── requirements.txt    ← List of all Python dependencies
+│   └── (any other assets)
+│
+└── instructions.txt        ← This guide :)
+
+🧩 4. What’s a Virtual Environment (venv)?
+
+A virtual environment is a safe, isolated space where all your project’s packages are stored.
+This ensures your system’s Python or other projects don’t get affected.
+
+Created automatically by first_time_run.bat
+
+Located at: data-bot/venv
+
+Activated automatically by run.bat
+
+You don’t need to touch it manually!
+
+⚙️ 5. Key Components
+Component	Description
+Streamlit	The framework that powers the dashboard interface.
+Pandas / NumPy	Used for data processing and manipulation.
+Matplotlib / Seaborn / Plotly	Libraries for charts and visualizations.
+Tabulate	Helps display tables neatly.
+Ollama	Local AI engine that runs models like Gemma3.
+Gemma3:1b	The default AI model (works well without a GPU).
+💡 6. Troubleshooting
+❌ “Python not found”
+
+→ Install Python 3.9 or higher from python.org/downloads
+.
+Make sure you tick “Add Python to PATH” during installation.
+
+❌ “Streamlit not opening in browser”
+
+→ Manually open http://localhost:8501
+ in your browser after running run.bat.
+
+❌ “Model not found” or “Ollama serve failed”
+
+→ Run ollama serve once manually in Command Prompt, then re-run run.bat.
+
+❌ “Tabulate missing” or dependency error
+
+→ Activate your venv manually:
+
+venv\Scripts\activate
+pip install -r resources\requirements.txt
+
+
+Then rerun run.bat.
+
+🧠 7. Tips
+
+To update libraries later:
+
+pip install -r resources\requirements.txt --upgrade
+
+
+You can copy this entire folder to another PC — it’s fully portable.
+
+Just rerun first_time_run.bat once on that system to set everything up.
+
+✨ 8. Summary
+Step	Action	Run
+1️⃣	First-time setup (creates venv, installs everything)	first_time_run.bat
+2️⃣	Daily usage (launch dashboard & Ollama)	run.bat
+3️⃣	Optional manual dependency update	pip install -r resources\requirements.txt --upgrade
+
+Now you’re ready to explore your AI-powered Data Dashboard!
+If your friend just copies this folder, they only need to run first_time_run.bat once — everything else happens automatically 🚀

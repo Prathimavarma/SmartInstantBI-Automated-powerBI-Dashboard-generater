@@ -1,0 +1,173 @@
+
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <meta charset="utf-8">
+        <title>Interactive Dashboard</title>
+        <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+        <style>
+            body {
+                font-family: 'Segoe UI', sans-serif;
+                background-color: #0e1117;
+                color: #fafafa;
+                margin: 0;
+                padding: 20px;
+            }
+            h1 { color: #4db8ff; }
+            .container { display: flex; flex-direction: column; gap: 20px; }
+            .summary, .chart, .insights {
+                background: #1b1f2a;
+                padding: 20px;
+                border-radius: 15px;
+                box-shadow: 0 0 10px rgba(0,0,0,0.4);
+            }
+            select {
+                background: #222;
+                color: white;
+                border-radius: 8px;
+                padding: 5px 10px;
+                margin-right: 10px;
+            }
+            .chart-controls {
+                margin-bottom: 15px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>📈 Data Dashboard</h1>
+        <div class="container">
+            <div class="summary">
+                <h2>📋 Summary Statistics</h2>
+                <table class="dataframe table table-striped">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Sales</th>
+      <th>Profit</th>
+      <th>Quantity</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>count</th>
+      <td>8.000000</td>
+      <td>8.00000</td>
+      <td>8.000000</td>
+    </tr>
+    <tr>
+      <th>mean</th>
+      <td>10337.500000</td>
+      <td>1906.25000</td>
+      <td>33.250000</td>
+    </tr>
+    <tr>
+      <th>std</th>
+      <td>2604.357612</td>
+      <td>782.13878</td>
+      <td>8.137216</td>
+    </tr>
+    <tr>
+      <th>min</th>
+      <td>6700.000000</td>
+      <td>950.00000</td>
+      <td>20.000000</td>
+    </tr>
+    <tr>
+      <th>25%</th>
+      <td>8750.000000</td>
+      <td>1275.00000</td>
+      <td>28.750000</td>
+    </tr>
+    <tr>
+      <th>50%</th>
+      <td>9750.000000</td>
+      <td>1800.00000</td>
+      <td>34.000000</td>
+    </tr>
+    <tr>
+      <th>75%</th>
+      <td>12375.000000</td>
+      <td>2475.00000</td>
+      <td>38.500000</td>
+    </tr>
+    <tr>
+      <th>max</th>
+      <td>14000.000000</td>
+      <td>3100.00000</td>
+      <td>45.000000</td>
+    </tr>
+  </tbody>
+</table>
+            </div>
+
+            <div class="insights">
+                <h2>🔍 Key Insights</h2>
+                <ul>
+                    
+                        <li><b>Sales</b>: Mean = 10337.50, Max = 14000.00, Min = 6700.00</li>
+                    
+                        <li><b>Profit</b>: Mean = 1906.25, Max = 3100.00, Min = 950.00</li>
+                    
+                        <li><b>Quantity</b>: Mean = 33.25, Max = 45.00, Min = 20.00</li>
+                    
+                </ul>
+            </div>
+
+            <div class="chart">
+                <div class="chart-controls">
+                    <label>Select Column:</label>
+                    <select id="columnSelect">
+                        
+                            <option value="Sales">Sales</option>
+                        
+                            <option value="Profit">Profit</option>
+                        
+                            <option value="Quantity">Quantity</option>
+                        
+                    </select>
+                    <label>Select Chart Type:</label>
+                    <select id="chartType">
+                        <option value="bar">Bar</option>
+                        <option value="line">Line</option>
+                        <option value="histogram">Histogram</option>
+                        <option value="scatter">Scatter</option>
+                    </select>
+                </div>
+                <div id="plotly-chart"><div>                            <div id="b08d1e74-b732-4fc5-8eff-3c430e8c7bac" class="plotly-graph-div" style="height:500px; width:100%;"></div>            <script type="text/javascript">                window.PLOTLYENV=window.PLOTLYENV || {};                                if (document.getElementById("b08d1e74-b732-4fc5-8eff-3c430e8c7bac")) {                    Plotly.newPlot(                        "b08d1e74-b732-4fc5-8eff-3c430e8c7bac",                        [{"hovertemplate":"index=%{x}\u003cbr\u003eSales=%{y}\u003cextra\u003e\u003c\u002fextra\u003e","legendgroup":"","marker":{"color":"#636efa","pattern":{"shape":""}},"name":"","orientation":"v","showlegend":false,"textposition":"auto","x":{"dtype":"i1","bdata":"AAECAwQFBgc="},"xaxis":"x","y":{"dtype":"i2","bdata":"4C5AHxwlvDQsGhAnsDYoIw=="},"yaxis":"y","type":"bar"}],                        {"template":{"data":{"barpolar":[{"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"barpolar"}],"bar":[{"error_x":{"color":"#f2f5fa"},"error_y":{"color":"#f2f5fa"},"marker":{"line":{"color":"rgb(17,17,17)","width":0.5},"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"bar"}],"carpet":[{"aaxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"baxis":{"endlinecolor":"#A2B1C6","gridcolor":"#506784","linecolor":"#506784","minorgridcolor":"#506784","startlinecolor":"#A2B1C6"},"type":"carpet"}],"choropleth":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"choropleth"}],"contourcarpet":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"contourcarpet"}],"contour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"contour"}],"heatmap":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"heatmap"}],"histogram2dcontour":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2dcontour"}],"histogram2d":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"histogram2d"}],"histogram":[{"marker":{"pattern":{"fillmode":"overlay","size":10,"solidity":0.2}},"type":"histogram"}],"mesh3d":[{"colorbar":{"outlinewidth":0,"ticks":""},"type":"mesh3d"}],"parcoords":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"parcoords"}],"pie":[{"automargin":true,"type":"pie"}],"scatter3d":[{"line":{"colorbar":{"outlinewidth":0,"ticks":""}},"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatter3d"}],"scattercarpet":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattercarpet"}],"scattergeo":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattergeo"}],"scattergl":[{"marker":{"line":{"color":"#283442"}},"type":"scattergl"}],"scattermapbox":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermapbox"}],"scattermap":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scattermap"}],"scatterpolargl":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolargl"}],"scatterpolar":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterpolar"}],"scatter":[{"marker":{"line":{"color":"#283442"}},"type":"scatter"}],"scatterternary":[{"marker":{"colorbar":{"outlinewidth":0,"ticks":""}},"type":"scatterternary"}],"surface":[{"colorbar":{"outlinewidth":0,"ticks":""},"colorscale":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"type":"surface"}],"table":[{"cells":{"fill":{"color":"#506784"},"line":{"color":"rgb(17,17,17)"}},"header":{"fill":{"color":"#2a3f5f"},"line":{"color":"rgb(17,17,17)"}},"type":"table"}]},"layout":{"annotationdefaults":{"arrowcolor":"#f2f5fa","arrowhead":0,"arrowwidth":1},"autotypenumbers":"strict","coloraxis":{"colorbar":{"outlinewidth":0,"ticks":""}},"colorscale":{"diverging":[[0,"#8e0152"],[0.1,"#c51b7d"],[0.2,"#de77ae"],[0.3,"#f1b6da"],[0.4,"#fde0ef"],[0.5,"#f7f7f7"],[0.6,"#e6f5d0"],[0.7,"#b8e186"],[0.8,"#7fbc41"],[0.9,"#4d9221"],[1,"#276419"]],"sequential":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]],"sequentialminus":[[0.0,"#0d0887"],[0.1111111111111111,"#46039f"],[0.2222222222222222,"#7201a8"],[0.3333333333333333,"#9c179e"],[0.4444444444444444,"#bd3786"],[0.5555555555555556,"#d8576b"],[0.6666666666666666,"#ed7953"],[0.7777777777777778,"#fb9f3a"],[0.8888888888888888,"#fdca26"],[1.0,"#f0f921"]]},"colorway":["#636efa","#EF553B","#00cc96","#ab63fa","#FFA15A","#19d3f3","#FF6692","#B6E880","#FF97FF","#FECB52"],"font":{"color":"#f2f5fa"},"geo":{"bgcolor":"rgb(17,17,17)","lakecolor":"rgb(17,17,17)","landcolor":"rgb(17,17,17)","showlakes":true,"showland":true,"subunitcolor":"#506784"},"hoverlabel":{"align":"left"},"hovermode":"closest","mapbox":{"style":"dark"},"paper_bgcolor":"rgb(17,17,17)","plot_bgcolor":"rgb(17,17,17)","polar":{"angularaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","radialaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"scene":{"xaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"yaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"},"zaxis":{"backgroundcolor":"rgb(17,17,17)","gridcolor":"#506784","gridwidth":2,"linecolor":"#506784","showbackground":true,"ticks":"","zerolinecolor":"#C8D4E3"}},"shapedefaults":{"line":{"color":"#f2f5fa"}},"sliderdefaults":{"bgcolor":"#C8D4E3","bordercolor":"rgb(17,17,17)","borderwidth":1,"tickwidth":0},"ternary":{"aaxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"baxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""},"bgcolor":"rgb(17,17,17)","caxis":{"gridcolor":"#506784","linecolor":"#506784","ticks":""}},"title":{"x":0.05},"updatemenudefaults":{"bgcolor":"#506784","borderwidth":0},"xaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2},"yaxis":{"automargin":true,"gridcolor":"#283442","linecolor":"#506784","ticks":"","title":{"standoff":15},"zerolinecolor":"#283442","zerolinewidth":2}}},"xaxis":{"anchor":"y","domain":[0.0,1.0],"title":{"text":"index"}},"yaxis":{"anchor":"x","domain":[0.0,1.0],"title":{"text":"Sales"}},"legend":{"tracegroupgap":0},"title":{"text":"Sales (Bar Chart)"},"barmode":"relative","height":500},                        {"responsive": true}                    )                };            </script>        </div></div>
+            </div>
+        </div>
+
+        <script>
+            const dfData = [{"Region":"North","Category":"Electronics","Sales":12000,"Profit":2400,"Quantity":30},{"Region":"South","Category":"Clothing","Sales":8000,"Profit":1200,"Quantity":45},{"Region":"East","Category":"Furniture","Sales":9500,"Profit":1500,"Quantity":25},{"Region":"West","Category":"Electronics","Sales":13500,"Profit":2700,"Quantity":35},{"Region":"North","Category":"Clothing","Sales":6700,"Profit":950,"Quantity":40},{"Region":"South","Category":"Furniture","Sales":10000,"Profit":2100,"Quantity":20},{"Region":"East","Category":"Electronics","Sales":14000,"Profit":3100,"Quantity":33},{"Region":"West","Category":"Clothing","Sales":9000,"Profit":1300,"Quantity":38}];
+            const numericColumns = ['Sales', 'Profit', 'Quantity'];
+
+            function generatePlot(column, type) {
+                let x = dfData.map((_, i) => i + 1);
+                let y = dfData.map(row => row[column]);
+
+                let trace;
+                if (type === "bar") trace = { x, y, type: "bar", marker: { color: "#4db8ff" }};
+                if (type === "line") trace = { x, y, type: "scatter", mode: "lines+markers", line: { color: "#4db8ff" }};
+                if (type === "histogram") trace = { x: y, type: "histogram", marker: { color: "#4db8ff" }};
+                if (type === "scatter") trace = { x, y, mode: "markers", type: "scatter", marker: { color: "#4db8ff", size: 8 }};
+
+                const layout = {
+                    title: `${type.charAt(0).toUpperCase() + type.slice(1)} Chart of ${column}`,
+                    paper_bgcolor: '#1b1f2a',
+                    plot_bgcolor: '#1b1f2a',
+                    font: { color: '#fafafa' }
+                };
+
+                Plotly.newPlot('plotly-chart', [trace], layout);
+            }
+
+            document.getElementById('columnSelect').addEventListener('change', function() {
+                generatePlot(this.value, document.getElementById('chartType').value);
+            });
+            document.getElementById('chartType').addEventListener('change', function() {
+                generatePlot(document.getElementById('columnSelect').value, this.value);
+            });
+        </script>
+    </body>
+    </html>
+    
