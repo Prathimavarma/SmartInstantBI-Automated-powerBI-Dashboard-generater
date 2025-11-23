@@ -25,6 +25,55 @@ The project is implemented using Streamlit for the web interface.
     When a file is uploaded, the system automatically generates a Plotly-based dashboard showing key visualizations.
     
     Users can also chat with the AI assistant to ask specific questions about the data — it processes the question, generates Python code, executes it safely, and shows results instantly.
+    
+Methodology:
+
+    The methodology follows a step-by-step intelligent pipeline:
+    
+    Data Input: User uploads a CSV or Excel dataset.
+    
+    NLP Understanding: The chatbot interprets user queries using AI models.
+    
+    Query Conversion: Natural language is converted into SQL or Python code dynamically.
+    
+    Data Processing: Extracted data is analyzed using pandas and NumPy.
+    
+    Visualization: Dashboards are auto-generated using Plotly (in Streamlit) and integrated with Power BI APIs for advanced visualizations.
+    
+    Insight Generation: Ollama (Gemma3 model) provides textual insights, trends, and observations.
+    
+    This hybrid AI + BI workflow ensures automation and interactivity throughout the process.
 
 Demo Flow:
-Upload dataset → Preview → Auto Dashboard → Ollama Insights → Chat with Data
+    Upload dataset → Preview → Auto Dashboard → Ollama Insights → Chat with Data
+
+Algorithms Used:
+    Several algorithmic approaches and AI models are used:
+    
+    Natural Language Processing (NLP):
+    
+    Used to interpret user queries and extract metrics, filters, and operations.
+    
+    Libraries: spaCy, Transformers
+    
+    Text-to-SQL Conversion Algorithm:
+    
+    Converts the NLP output into SQL queries automatically.
+    
+    Ensures syntactic correctness and prevents SQL injection.
+    
+    Data Analysis Algorithms:
+    
+    Uses pandas and NumPy for aggregation, grouping, and descriptive analytics.
+    
+    Dashboard Generation Logic:
+    
+    Auto-detects column types and suggests appropriate chart types (bar, line, scatter, histogram, etc.)
+    
+    Uses Plotly Express for dynamic visualization.
+    
+    AI Insight Generation (Ollama + TinyLlama):
+    
+    TinyLlama helps generate the dashboard.
+    
+    Gemma3 model (via Ollama) analyzes datasets to generate human-readable insights.
